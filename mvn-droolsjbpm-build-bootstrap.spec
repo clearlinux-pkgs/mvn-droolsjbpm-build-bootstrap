@@ -4,10 +4,11 @@
 #
 Name     : mvn-droolsjbpm-build-bootstrap
 Version  : 6.3.0.final
-Release  : 1
+Release  : 2
 URL      : https://github.com/kiegroup/droolsjbpm-build-bootstrap/archive/6.3.0.Final.tar.gz
 Source0  : https://github.com/kiegroup/droolsjbpm-build-bootstrap/archive/6.3.0.Final.tar.gz
-Source1  : https://repo1.maven.org/maven2/org/optaplanner/optaplanner-bom/6.3.0.Final/optaplanner-bom-6.3.0.Final.pom
+Source1  : https://repo1.maven.org/maven2/org/kie/kie-parent-metadata/6.3.0.Final/kie-parent-metadata-6.3.0.Final.pom
+Source2  : https://repo1.maven.org/maven2/org/optaplanner/optaplanner-bom/6.3.0.Final/optaplanner-bom-6.3.0.Final.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
@@ -46,8 +47,11 @@ license components for the mvn-droolsjbpm-build-bootstrap package.
 mkdir -p %{buildroot}/usr/share/package-licenses/mvn-droolsjbpm-build-bootstrap
 cp LICENSE-ASL-2.0.txt %{buildroot}/usr/share/package-licenses/mvn-droolsjbpm-build-bootstrap/LICENSE-ASL-2.0.txt
 cp ide-configuration/LICENSE-ASL-2.0-HEADER.txt %{buildroot}/usr/share/package-licenses/mvn-droolsjbpm-build-bootstrap/ide-configuration_LICENSE-ASL-2.0-HEADER.txt
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/kie/kie-parent-metadata/6.3.0.Final
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/kie/kie-parent-metadata/6.3.0.Final/kie-parent-metadata-6.3.0.Final.pom
+
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/optaplanner/optaplanner-bom/6.3.0.Final
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/optaplanner/optaplanner-bom/6.3.0.Final/optaplanner-bom-6.3.0.Final.pom
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/optaplanner/optaplanner-bom/6.3.0.Final/optaplanner-bom-6.3.0.Final.pom
 
 
 %files
@@ -55,6 +59,7 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/optaplanner/optapla
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/java/.m2/repository/org/kie/kie-parent-metadata/6.3.0.Final/kie-parent-metadata-6.3.0.Final.pom
 /usr/share/java/.m2/repository/org/optaplanner/optaplanner-bom/6.3.0.Final/optaplanner-bom-6.3.0.Final.pom
 
 %files license
